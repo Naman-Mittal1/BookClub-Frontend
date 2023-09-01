@@ -23,7 +23,7 @@ const RequestBookModal = ({ isOpen, onRequestClose }) => {
     event.preventDefault();
 
     try {
-      await axios.post(`${REACT_APP_API_URL}/books/request`, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/books/request`, {
         title,
         author,
         year,

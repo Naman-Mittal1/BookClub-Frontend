@@ -16,7 +16,7 @@ const RegisterModal = ({ isOpen, onRequestClose }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(`${REACT_APP_API_URL}/auth/register`, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, {
         name,
         username,
         email,
