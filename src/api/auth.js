@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api',
+    baseURL: process.env.REACT_APP_API_URL,
     withCredentials: true
 })
 
@@ -29,7 +29,7 @@ export const loginUser = async (data) => {
     return res.data;
   } catch (err) {
     console.log("Error: ", err);
-    throw err; // Rethrow the error to handle it further up the call stack.
+    throw err; 
   }
 };
 
