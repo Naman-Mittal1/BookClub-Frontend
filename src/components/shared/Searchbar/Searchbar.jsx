@@ -71,8 +71,8 @@ if(search === '') {
 
   return (
     <div className="flex flex-col items-center justify-center mb-20">
-      <h1 className="text-5xl mb-3 font-semibold text-slate-300" style={{ fontFamily: "'Comic Neue', cursive" }}>
-        BookClub
+      <h1 className="text-5xl mb-3 font-semibold text-slate-300" style={{ fontFamily: "'Courgette', cursive" }}>
+      BookMates
       </h1>
       <p className="text-lg text-slate-400 max-w-md text-center mb-8">
         The world's largest ebook club and library

@@ -46,9 +46,9 @@ const Header = () => {
           <Link
             to="/"
             className="text-xl font-bold sm:text-2xl"
-            style={{ fontFamily: "'Comic Neue', cursive" }}
+            style={{ fontFamily: "'Courgette', cursive" }}
           >
-            BookClub
+            BookMates
           </Link>
         </div>
 

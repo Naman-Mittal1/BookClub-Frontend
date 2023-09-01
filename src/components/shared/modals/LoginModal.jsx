@@ -124,7 +124,7 @@ const LoginModal = ({ isOpen, onRequestClose }) => {
           Continue with Google
         </button>
         <p className="text-white text-sm text-center mt-2">
-          New to BookClub? <Link to={'/'} >Register now</Link>
+          New to BookMates? <Link to={'/'} >Register now</Link>
         </p>
       </div>
     </div>

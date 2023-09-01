@@ -16,8 +16,8 @@ const HomePage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh]">
 
-      <h1 className="text-5xl mb-3 font-semibold text-center text-slate-300" style={{ fontFamily: "'Comic Neue', cursive" }}>
-        BookClub
+      <h1 className="text-5xl mb-3 font-semibold text-center text-slate-300" style={{ fontFamily: "'Courgette', cursive" }}>
+        BookMates
       </h1>
 
       <p className="text-lg text-center text-slate-400 max-w-md mb-8">
