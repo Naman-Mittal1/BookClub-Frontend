@@ -77,14 +77,14 @@ if(search === '') {
       <p className="text-lg text-slate-400 max-w-md text-center mb-8">
         The world's largest ebook club and library
       </p>
-      <form onSubmit={handleSearch} className="w-full max-w-4xl">
+      <form onSubmit={handleSearch} className="w-full max-w-4xl focus:outline-none outline-none bg-transparent">
         <div className="relative flex items-center bg-white rounded-xl overflow-hidden shadow-md h-12">
           <input
             type="text"
             placeholder="Search books, topics, authors..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full py-3 px-6"
+            className="w-full outline-none focus:outline-none py-3 px-6"
           />
           <button type="submit" className="absolute right-0 p-3 text-gray-500 hover:text-blue-500">
             <BsSearch size={22} />

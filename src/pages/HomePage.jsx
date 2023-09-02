@@ -31,7 +31,7 @@ const HomePage = () => {
             placeholder="Search books, topics, authors..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className=" py-3 w-11/12 px-6" 
+            className=" py-3 outline-none w-11/12 px-6" 
           />
 
           <button
