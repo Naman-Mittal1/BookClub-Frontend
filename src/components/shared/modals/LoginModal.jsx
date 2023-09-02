@@ -72,7 +72,7 @@ const LoginModal = ({ isOpen, onRequestClose }) => {
     <div
       className={`${
         isOpen ? "fixed" : "hidden"
-      } inset-0 flex items-center justify-center z-50`}
+      } inset-0 flex items-center justify-center z-50` } style={{margin: "auto"}}
     >
       <div className="bg-gray-900 p-8 rounded-lg relative lg:w-2/4 xl:1/3 max-w-lg">
         <button

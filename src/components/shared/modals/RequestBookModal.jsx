@@ -77,7 +77,7 @@ const RequestBookModal = ({ isOpen, onRequestClose }) => {
     <div style={{margin: "0"}}
       className={`${
         isOpen ? "fixed m-0" : "hidden"
-      } inset-0 flex items-center justify-center z-50`}
+      } inset-0 flex items-center justify-center z-50`} 
     >
       <div className="bg-gray-900 p-8 rounded-lg relative w-full lg:w-1/3 xl:1/3 max-w-lg">
         <button
