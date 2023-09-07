@@ -12,6 +12,7 @@ import { useCookies } from 'react-cookie';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Feeds from './components/Feeds/Feeds';
 
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/browse-books" element={<BrowseBooks />} />
         <Route path="/book/:id" element={<BookDetails />} />
         <Route path="/upload" element={<ProtectedRoute element={<BookUpload />} />} />
+        <Route path="/feeds" element={<Feeds />} />
       </Routes>
       <ToastContainer />
       <Footer />

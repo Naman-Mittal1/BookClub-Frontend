@@ -2,7 +2,7 @@ import React from 'react';
 
 const BookCard = ({ book }) => {
   return (
-    <div className="bg-gray-900 p-4 rounded-md shadow-md flex flex-col sm:flex-row items-center">
+    <div className="bg-gray-900 bg-opacity-70  p-4 rounded-md shadow-md flex flex-col sm:flex-row items-center">
       <img 
         src={book.image} 
         alt={book.title}
