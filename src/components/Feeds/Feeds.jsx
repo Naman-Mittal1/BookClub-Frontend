@@ -29,7 +29,7 @@ const Feeds = () => {
       });
       setFeedText('')
     } catch (error) {
-      toast.error("Error! Unable to post", {
+      toast.error("Error! you need to login", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
