@@ -5,6 +5,7 @@ import { getBook } from '../../api/books';
 import RandomBooks from '../BrowseBooks/RandomBooks';
 import AddComment from '../AddComment/AddComment';
 import Loader from '../shared/Loader/Loader';
+import AudioBook from '../AudioBook/AudioBook';
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -45,6 +46,8 @@ const BookDetails = () => {
 
         </div>
       </div>
+
+      <AudioBook  bookId={id} />
 
       <RandomBooks />
 
