@@ -14,7 +14,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[40vh] sm:min-h-[75vh]">
+    <div className="flex flex-col items-center justify-center min-h-[60vh] sm:min-h-[75vh]">
 
       <h1 className="text-5xl mb-3 font-semibold text-center text-slate-300" style={{ fontFamily: "'Courgette', cursive" }}>
         BookMates
