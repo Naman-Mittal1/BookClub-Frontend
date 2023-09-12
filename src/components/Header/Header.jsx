@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
 import { useCookies } from "react-cookie";
 import AuthModal from "./AuthModal";
 import RequestModal from "./RequestModal";
-
+import DropdownMenu from "./DropdownMenu";
 import { toast } from 'react-toastify';
 
 
@@ -38,6 +37,12 @@ const Header = () => {
     });
     navigate("/");
   };
+
+  const options = [
+    { label: 'My Profile', href: '/profile' },
+    { label: 'My Book Requests', href: '/book-requests' },
+    { label: 'LogOut', href: '/' },
+  ];
 
   return (
     <header className="bg-gray-900 text-white">
@@ -146,12 +151,17 @@ const Header = () => {
           {!cookies.access_token ? (
             <AuthModal />
           ) : (
-            <button
+            <>
+            {/* <button
               className="bg-blue-800 hover:bg-blue-600 hidden lg:flex py-2 px-4 rounded text-sm"
               onClick={logout}
             >
               LogOut
-            </button>
+            </button> */}
+            <DropdownMenu options={options} logout={logout} />
+
+            {/* <DropdownMenu  logout={logout} /> */}
+            </>
           )}
         </div>
 

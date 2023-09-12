@@ -13,6 +13,7 @@ import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Feeds from './components/Feeds/Feeds';
+import ProfilePage from './components/ProfilePage/ProfilePage';
 
 
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
         <Route path="/book/:id" element={<BookDetails />} />
         <Route path="/upload" element={<ProtectedRoute element={<BookUpload />} />} />
         <Route path="/feeds" element={<Feeds />} />
+        <Route path='/profile' element={<ProfilePage />} />
       </Routes>
       <ToastContainer />
       <Footer />
