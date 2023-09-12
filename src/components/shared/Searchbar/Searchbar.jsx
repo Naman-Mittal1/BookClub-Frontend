@@ -74,7 +74,7 @@ if(search === '') {
       <h1 className="text-5xl mb-3 font-semibold text-slate-300" style={{ fontFamily: "'Courgette', cursive" }}>
       BookMates
       </h1>
-      <p className="sm:text-lg text-base text-slate-400 max-w-md text-center mb-8">
+      <p className="sm:text-lg text-base text-slate-400 sm:max-w-md px-1 text-center mb-8">
         The world's largest ebook club and library
       </p>
       <form onSubmit={handleSearch} className="w-full max-w-4xl focus:outline-none outline-none bg-transparent">
