@@ -1,6 +1,6 @@
 // BookDetails.jsx
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getBook } from '../../api/books';
 import RandomBooks from '../BrowseBooks/RandomBooks';
 import AddComment from '../AddComment/AddComment';
@@ -37,7 +37,12 @@ const BookDetails = () => {
         <div>
           <h2 className="text-4xl font-semibold mb-4">{book.title}</h2>
           <p className=" mb-3 italic text-gray-400 font-semibold">By {book.author}</p>
-          <p className="text-gray-300 mb-1"> Category:  {book.genre}</p>
+          <p className="text-gray-300 mb-1">
+            Category:   
+            <span  className='italic text-blue-600 '>
+              <Link to={`/explore/${book.genre}`}>  {book.genre}</Link>
+            </span> 
+          </p>          
           <p className="text-gray-300 mt-3 mb-1">Year: {book.year}</p>
           <p className="text-gray-300 mb-4 mt-3 max-w-2xl">Description: {book.description}</p>
           <a href={book.downloadLink} target="_blank" rel="noopener noreferrer" className="text-white bg-blue-500 hover:bg-blue-600 rounded-md py-2 mt-3 px-4 w-fit text-center block">

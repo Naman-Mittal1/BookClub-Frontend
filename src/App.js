@@ -14,6 +14,8 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Feeds from './components/Feeds/Feeds';
 import ProfilePage from './components/ProfilePage/ProfilePage';
+import ExplorePage from './pages/ExplorePage';
+import GenrePage from './pages/GenrePage';
 
 
 const App = () => {
@@ -47,6 +49,8 @@ const App = () => {
         <Route path="/upload" element={<ProtectedRoute element={<BookUpload />} />} />
         <Route path="/feeds" element={<Feeds />} />
         <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/explore' element={<ExplorePage />} />
+        <Route path="/explore/:genre" element={<GenrePage />} />
       </Routes>
       <ToastContainer />
       <Footer />

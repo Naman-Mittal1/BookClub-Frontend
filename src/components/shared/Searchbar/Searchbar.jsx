@@ -11,17 +11,6 @@ const Searchbar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const debouncedSearchTerm = useDebounce(search, 1000);
 
-  // const handleSearch = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     console.log('Search query:', debouncedSearchTerm);
-  //     const response = await searchBooks(debouncedSearchTerm);
-  //     setSearchResults(response); 
-  //   } catch (error) {
-  //     console.error('Error searching books:', error);
-  //   }
-  // };
-
   useEffect(() => {
     const fetchData = async () => {
       const data = await searchBooks(debouncedSearchTerm);
