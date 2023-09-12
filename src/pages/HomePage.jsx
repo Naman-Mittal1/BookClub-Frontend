@@ -20,7 +20,7 @@ const HomePage = () => {
         BookMates
       </h1>
 
-      <p className="text-lg text-center text-slate-400 max-w-md mb-8">
+      <p className="sm:text-lg text-base text-center text-slate-400 max-w-md mb-8">
         The world's largest ebook club and library
       </p>
 
