@@ -95,7 +95,7 @@ const Header = () => {
             Explore
           </Link>
 
-          <Link to="/community" 
+          <Link to="/join" 
             onClick={closeMenu}
             className="lg:px-4 py-2 block text-sm lg:text-base hover:text-gray-300"
           >

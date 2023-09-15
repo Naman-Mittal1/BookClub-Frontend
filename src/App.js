@@ -16,6 +16,8 @@ import Feeds from './components/Feeds/Feeds';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import ExplorePage from './pages/ExplorePage';
 import GenrePage from './pages/GenrePage';
+import ChatPage from './pages/ChatPage.jsx';
+import JoinPage from './pages/JoinPage';
 
 
 const App = () => {
@@ -51,6 +53,8 @@ const App = () => {
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/explore' element={<ExplorePage />} />
         <Route path="/explore/:genre" element={<GenrePage />} />
+        <Route path="/join" element={<JoinPage />} />
+        <Route path="/room/:id" element={<ChatPage />} />
       </Routes>
       <ToastContainer />
       <Footer />
