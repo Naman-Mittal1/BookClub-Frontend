@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage';
-import Footer from './components/Footer/Footer';
+// import Footer from './components/Footer/Footer';
 import BrowseBooks from './components/BrowseBooks/BrowseBooks';
 import BookUpload from './pages/BookUpload';
 import BookDetails from './components/BookDetails/BookDetails';
@@ -54,10 +54,10 @@ const App = () => {
         <Route path='/explore' element={<ExplorePage />} />
         <Route path="/explore/:genre" element={<GenrePage />} />
         <Route path="/join" element={<JoinPage />} />
-        <Route path="/room/:id" element={<ChatPage />} />
+        <Route path="/room/:id" element={<ProtectedRoute element={<ChatPage />} />} />
       </Routes>
       <ToastContainer />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
