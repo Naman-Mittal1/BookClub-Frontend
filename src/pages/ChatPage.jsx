@@ -30,7 +30,7 @@ const ChatPage = () => {
     return () => {
       socket.current.disconnect();
     };
-    // eslint-disable-next-line 
+    // eslint-disable-next-line  
   }, [location.search]);
 
   useEffect(() => {
