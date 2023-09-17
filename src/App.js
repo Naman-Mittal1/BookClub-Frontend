@@ -23,22 +23,21 @@ const App = () => {
  const [cookies,] = useCookies(["access_token"])
 
   const ProtectedRoute = ({ element }) => {
-    if (!cookies.access_token) {
-      toast.error("You need to Login!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-      return <Navigate to="/" />;
-      
-    }
-    return element;
-  };
+  if (!cookies.access_token) {
+    toast.error("You need to Login!", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+    return <Navigate to="/" />;
+  }
+  return element;
+};
 
   return (
     <>
@@ -53,6 +52,7 @@ const App = () => {
         <Route path='/explore' element={<ExplorePage />} />
         <Route path="/explore/:genre" element={<GenrePage />} />
         <Route path="/join" element={<JoinPage />} />
+        <Route path="/community" element={<JoinPage />} />
         <Route path="/room/:id" element={<ProtectedRoute element={<ChatPage />} />} />
       </Routes>
       <ToastContainer />

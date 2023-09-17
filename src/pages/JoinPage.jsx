@@ -19,7 +19,7 @@ const JoinRoom = () => {
       if (!cookies.access_token) {
         toast.error("You need to Login!", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 4000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
