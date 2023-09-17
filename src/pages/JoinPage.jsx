@@ -4,16 +4,32 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import RoomList from '../components/RoomList/RoomList';
 import FooterUn from '../components/Footer/FooterUn';
+import { useCookies } from 'react-cookie';
 
 
 const JoinRoom = () => {
+  const [cookies,] = useCookies(["access_token"])
+  
   const navigate = useNavigate();
   const [name, setName] = useState('');
 
   const handleCreateRoom = async (e) => {
     e.preventDefault();
-    console.log(name)
     try {
+      if (!cookies.access_token) {
+        toast.error("You need to Login!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return;
+      }
+
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/rooms`, {
         name: name, 
       });
