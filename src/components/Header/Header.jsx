@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -7,10 +7,30 @@ import RequestModal from "./RequestModal";
 import DropdownMenu from "./DropdownMenu";
 import { toast } from 'react-toastify';
 
+import axios from 'axios';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cookies, setCookies] = useCookies(["access_token"]);
+
+  const [userData, setUserData] = useState({});
+  const userID = window.localStorage.getItem('userID');
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/user?userID=${userID}`);
+        const data = response.data;
+        setUserData(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (userID) {
+      fetchUserData();
+    }
+  }, [userID]);
 
   const navigate = useNavigate();
 
@@ -39,7 +59,8 @@ const Header = () => {
   };
 
   const options = [
-    { label: 'My Profile', href: '/profile' },
+    { label: `Hey ${userData.username}! 🥳`, href: '/profile' },
+    // { label: 'My Profile', href: '' },
     { label: 'My Book Requests', href: '/book-requests' },
     { label: 'LogOut', href: '/' },
   ];
