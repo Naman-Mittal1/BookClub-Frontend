@@ -6,6 +6,7 @@ import RandomBooks from '../BrowseBooks/RandomBooks';
 import AddComment from '../AddComment/AddComment';
 import Loader from '../shared/Loader/Loader';
 import AudioBook from '../AudioBook/AudioBook';
+import FooterUn from '../Footer/FooterUn';
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -31,6 +32,7 @@ const BookDetails = () => {
   }
 
   return (
+    <>
     <div className="text-white shadow-md rounded-lg mx-auto my-10 p-6 max-w-7xl">
       <div className='flex gap-7 sm:gap-2 flex-col sm:flex-row'>
         <img src={book.image} alt={book.title} className=" flex justify-center sm:justify-start rounded sm:mr-6 sm:m-0 w-60 h-80 m-auto" />
@@ -58,6 +60,8 @@ const BookDetails = () => {
 
       <AddComment />
     </div>
+    <FooterUn />
+    </>
   );
 }
 

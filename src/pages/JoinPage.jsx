@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import RoomList from '../components/RoomList/RoomList';
+import FooterUn from '../components/Footer/FooterUn';
 
 
 const JoinRoom = () => {
@@ -76,6 +77,7 @@ const JoinRoom = () => {
   
   {/* List of Rooms */}
   <RoomList />
+  <FooterUn />
 </div>
   );
 };

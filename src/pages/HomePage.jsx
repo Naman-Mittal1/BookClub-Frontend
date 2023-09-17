@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { BsSearch } from 'react-icons/bs';
+import Footer from '../components/Footer/Footer';
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -42,7 +43,9 @@ const HomePage = () => {
           </button>
         </form>
       </div>
+      <Footer />
     </div>
+    
   );
 };
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import BookCard from '../components/BookCard/BookCard';
+import Footer from '../components/Footer/Footer';
 
 
 const GenrePage = () => {
@@ -32,6 +33,7 @@ const GenrePage = () => {
         <h2 className='text-white text-xl sm:text-3xl m-4 sm:m-auto flex justify-center'>No books found of this genre</h2>
       )}
     </div>
+    <Footer />
   </>
   )
 }

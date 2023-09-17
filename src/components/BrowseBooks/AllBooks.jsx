@@ -29,15 +29,15 @@ const AllBooks = () => {
 
 
   return (
-      <div className="">
-        {books.map((book) => (
-          <div className="mb-6" key={book._id}>
-            <Link to={`/book/${book._id}`}>
-              <BookCard book={book} />
-            </Link>
-          </div>
-        ))}
+    <div className="">
+    {books.map((book) => (
+      <div className="mb-6" key={book._id}>
+        <Link to={`/book/${book._id}`}>
+          <BookCard book={book} />
+        </Link>
       </div>
+    ))}
+  </div>
   );
 };
 

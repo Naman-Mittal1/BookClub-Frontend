@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Footer from '../Footer/Footer';
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState({});
@@ -22,6 +23,7 @@ const ProfilePage = () => {
   }, [userID]);
 
   return (
+   <>
     <div className="text-white flex justify-center items-center h-screen m-auto">
     <div className="container mx-auto p-6 rounded-lg shadow-md sm:w-full md:w-2/3 lg:w-1/2">
       {userID ? (
@@ -44,6 +46,8 @@ const ProfilePage = () => {
       )}
     </div>
   </div>
+  <Footer />
+  </>
   );
 };
 

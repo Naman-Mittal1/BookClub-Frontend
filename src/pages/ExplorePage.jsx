@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Tilt } from "react-tilt";
+import FooterUn from '../components/Footer/FooterUn';
 
 const ExplorePage = () => {
   const genres = [
@@ -23,6 +24,7 @@ const ExplorePage = () => {
   ];
 
   return (
+    <>
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-semibold mt-5 text-center opacity-80 mb-10 text-white">Explore Genres</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -41,6 +43,8 @@ const ExplorePage = () => {
         ))}
       </div>
     </div>
+    <FooterUn />
+    </>
   );
 };
 

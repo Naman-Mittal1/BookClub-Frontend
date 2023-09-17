@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import axios from "axios";
 import { toast } from 'react-toastify';
 import FeedContent from './FeedContent';
+import FooterUn from '../Footer/FooterUn';
 // import { useCookies } from "react-cookie";
 
 const Feeds = () => {
@@ -45,6 +46,8 @@ const Feeds = () => {
   
   
   return (
+<>
+
 <div className="flex justify-center mb-10">
   <div className="w-full max-w-5xl p-5  rounded-lg shadow-md">
     <form onSubmit={handleSubmit} className="w-full" method="POST">
@@ -65,8 +68,11 @@ const Feeds = () => {
     </form>
 
     <FeedContent />
+    
   </div>
 </div>
+<FooterUn />
+</>
 
 
   );

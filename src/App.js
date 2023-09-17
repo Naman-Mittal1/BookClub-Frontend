@@ -3,7 +3,6 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage';
-// import Footer from './components/Footer/Footer';
 import BrowseBooks from './components/BrowseBooks/BrowseBooks';
 import BookUpload from './pages/BookUpload';
 import BookDetails from './components/BookDetails/BookDetails';
