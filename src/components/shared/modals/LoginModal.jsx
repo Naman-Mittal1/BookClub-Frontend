@@ -6,11 +6,17 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { Link } from "react-router-dom";
-const LoginModal = ({ isOpen, onRequestClose }) => {
+const LoginModal = ({ isOpen, onRequestClose, onRegisterClick }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const [, setCookies] = useCookies("access_token");
+
+  const handleRegisterClick = () => {
+    onRequestClose()
+    onRegisterClick()
+    // isOpen();
+  }
 
   const navigate = useNavigate();
 
@@ -152,7 +158,7 @@ const LoginModal = ({ isOpen, onRequestClose }) => {
             Continue with Google
           </button>
           <p className="text-white text-sm text-center mt-2">
-            New to BookMates? <Link to={"/"}>Register now</Link>
+            New to BookMates? <Link to={"/"}  className="text-blue-600 font-bold" onClick={handleRegisterClick}>Register now</Link>
           </p>
         </div>
       </div>

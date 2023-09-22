@@ -5,13 +5,19 @@ import { toast } from 'react-toastify';
 import { Link } from "react-router-dom";
 
 
-const RegisterModal = ({ isOpen, onRequestClose }) => {
+const RegisterModal = ({ isOpen, onRequestClose, onLoginClick }) => {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate()
+
+  const handleLoginClick = () => {
+    onRequestClose()
+    onLoginClick()
+    // isOpen();
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -147,7 +153,7 @@ const RegisterModal = ({ isOpen, onRequestClose }) => {
           Continue with Google
         </button>
         <p className="text-white text-sm text-center mt-2">
-          Already Have an account? <Link to='/' >Sign in</Link>
+          Already Have an account? <Link to='/' className="text-blue-600 font-bold" onClick={handleLoginClick}>Sign in</Link>
         </p>
       </div>
     </div>

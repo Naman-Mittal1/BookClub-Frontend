@@ -19,6 +19,7 @@ const RequestBookModal = ({ isOpen, onRequestClose }) => {
   };
   const navigate = useNavigate()
 
+
   const handleRequestSubmit = async (event) => {
     event.preventDefault();
 
@@ -146,7 +147,7 @@ const RequestBookModal = ({ isOpen, onRequestClose }) => {
           </button>
         </form>
         <p className="text-white text-sm text-center mt-5">
-          Want to Explore different Genre? <Link to={'/'} >Click Here</Link>
+          Want to Explore different Genre? <Link to={'/explore'} onClick={onRequestClose} className="text-blue-600 font-bold"  >Click Here</Link>
         </p>       
       </div>
     </div>
