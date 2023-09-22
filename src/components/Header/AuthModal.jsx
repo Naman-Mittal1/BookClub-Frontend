@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import LoginModal from "../shared/modals/LoginModal";
 import RegisterModal from "../shared/modals/RegisterModal";
 
-
 const AuthModal = () => {
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
     const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
