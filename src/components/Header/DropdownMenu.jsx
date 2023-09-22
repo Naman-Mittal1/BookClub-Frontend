@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {BiSolidUser} from 'react-icons/bi'
 import { Link } from 'react-router-dom';
 const DropdownMenu = ({ options, logout }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        closeMenu();
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -13,7 +25,7 @@ const DropdownMenu = ({ options, logout }) => {
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <div ref={dropdownRef} className="relative inline-block text-left">
       <div>
           <BiSolidUser onClick={toggleMenu}
           type="button"
@@ -35,16 +47,17 @@ const DropdownMenu = ({ options, logout }) => {
               <Link
                 key={index}
                 to={option.href}
-                className="block px-4 py-2 text-sm text-white hover:bg-gray-400 hover:text-gray-900"
+                className=" px-4 py-3 text-sm text-white hover:bg-gray-900 hover:text-gray-200 flex items-center" // Use 'flex items-center' to align icon and label horizontally
                 role="menuitem"
                 onClick={() => {
-                  if (option.label === 'LogOut') {
+                  if (option.label === 'Logout') {
                     logout(); 
                   }
                   closeMenu(); 
                 }}
               >
-                {option.label}
+                {option.icon}
+                <span className='ml-2'>{option.label}</span>
               </Link>
             ))}
           </div>

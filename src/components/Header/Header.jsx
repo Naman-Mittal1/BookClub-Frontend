@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -6,31 +6,31 @@ import AuthModal from "./AuthModal";
 import RequestModal from "./RequestModal";
 import DropdownMenu from "./DropdownMenu";
 import { toast } from 'react-toastify';
+import { FaUser, FaBook, FaSignOutAlt } from 'react-icons/fa'; // Import the icons you need
 
-import axios from 'axios';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cookies, setCookies] = useCookies(["access_token"]);
 
-  const [userData, setUserData] = useState({});
-  const userID = window.localStorage.getItem('userID');
+  // const [userData, setUserData] = useState({});
+  // const userID = window.localStorage.getItem('userID');
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/user?userID=${userID}`);
-        const data = response.data;
-        setUserData(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     try {
+  //       const response = await axios.get(`${process.env.REACT_APP_API_URL}/user?userID=${userID}`);
+  //       const data = response.data;
+  //       // setUserData(data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
 
-    if (userID) {
-      fetchUserData();
-    }
-  }, [userID]);
+  //   if (userID) {
+  //     fetchUserData();
+  //   }
+  // }, [userID]);
 
   const navigate = useNavigate();
 
@@ -59,10 +59,10 @@ const Header = () => {
   };
 
   const options = [
-    { label: `Hey ${userData.username}! 🥳`, href: '/profile' },
-    // { label: 'My Profile', href: '' },
-    { label: 'My Book Requests', href: '/book-requests' },
-    { label: 'LogOut', href: '/' },
+    // { label: `Hey ${userData.username}! 🥳`, href: '#' },
+    { icon: <FaUser />, label: 'My Profile', href: '/profile' },
+    { icon: <FaBook />, label: 'My Book Requests', href: '/book-requests' },
+    { icon: <FaSignOutAlt />, label: 'Logout', href: '/' },
   ];
 
   return (

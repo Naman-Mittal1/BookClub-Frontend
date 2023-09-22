@@ -23,31 +23,31 @@ const ProfilePage = () => {
   }, [userID]);
 
   return (
-   <>
-    <div className="text-white flex justify-center items-center h-screen m-auto">
-    <div className="container mx-auto p-6 rounded-lg shadow-md sm:w-full md:w-2/3 lg:w-1/2">
-      {userID ? (
-        <div>
-          <h2 className="text-3xl font-semibold mb-4">Profile</h2>
-          <div className="mb-4">
-            <p className="text-lg">
-              <span className="font-semibold">Name:</span> {userData.name}
-            </p>
-            <p className="text-lg">
-              <span className="font-semibold">Username:</span> {userData.username}
-            </p>
-            <p className="text-lg">
-              <span className="font-semibold">Email:</span> {userData.email}
-            </p>
-          </div>
+    <>
+      <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md mx-auto bg-gray-400 p-6 rounded-lg shadow-lg">
+          {userID ? (
+            <div>
+              <h2 className="text-3xl font-semibold mb-4 text-gray-800 underline" style={{ fontFamily: "Courgette" }}>Profile Info</h2>
+              <div className="mb-4">
+                <p className="text-lg text-gray-900">
+                  <span className="font-semibold">Name:</span> {userData.name}
+                </p>
+                <p className="text-lg text-gray-900">
+                  <span className="font-semibold">Username:</span> {userData.username}
+                </p>
+                <p className="text-lg text-gray-900">
+                  <span className="font-semibold">Email:</span> {userData.email}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <p className="text-lg text-gray-700">Please log in to view your profile.</p>
+          )}
         </div>
-      ) : (
-        <p className="text-lg">Please log in to view your profile.</p>
-      )}
-    </div>
-  </div>
-  <Footer />
-  </>
+      </div>
+      <Footer />
+    </>
   );
 };
 
