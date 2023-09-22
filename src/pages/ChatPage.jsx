@@ -158,7 +158,7 @@ const ChatPage = () => {
           </div>
           <form
             onSubmit={handleSendMessage}
-            className="chat-input fixed bottom-0 left-0 right-0 bg-gray-800 p-4"
+            className="chat-input fixed bottom-0 left-0 right-0 bg-gray-800 px-1 text-sm sm:text-base py-4 sm:p-4"
             style={{ borderTop: "1px solid #444" }}
           >
             <div className="mb-4 flex items-center">
@@ -171,7 +171,7 @@ const ChatPage = () => {
               />
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 focus:outline-none"
+                className="bg-blue-500 text-white px-4 py-3 rounded-r-lg hover:bg-blue-600 focus:outline-none"
               >
                 Send
               </button>
