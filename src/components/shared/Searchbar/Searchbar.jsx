@@ -59,7 +59,7 @@ if(search === '') {
 
 
   return (
-    <div className="flex flex-col items-center justify-center mb-20">
+    <div className="flex flex-col items-center justify-center mb-5">
       <h1 className="text-5xl mb-3 font-semibold text-slate-300" style={{ fontFamily: "'Courgette', cursive" }}>
       BookMates
       </h1>
