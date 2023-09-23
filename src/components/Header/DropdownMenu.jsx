@@ -25,7 +25,7 @@ const DropdownMenu = ({ options, logout }) => {
   };
 
   return (
-    <div ref={dropdownRef} className="relative inline-block text-left">
+    <div ref={dropdownRef} className="relative z-50 inline-block text-left">
       <div>
           <BiSolidUser onClick={toggleMenu}
           type="button"
