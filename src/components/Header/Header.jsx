@@ -100,41 +100,37 @@ const Header = () => {
         <nav
           className={`${
             isMenuOpen ? "flex mt-3" : "hidden"
-          } lg:flex lg:items-center w-full lg:w-auto flex-col lg:flex-row lg:space-x-4`}
+          } lg:flex lg:items-center w-full lg:w-auto  flex-col lg:flex-row lg:space-x-4`}
         >
           <Link to="/browse-books"
             onClick={closeMenu}
-            className="lg:px-4 py-2 block text-sm lg:text-base hover:text-gray-300"
+            className="lg:px-4 py-2 block text-sm focus:font-bold focus:text-blue-300 lg:text-base hover:text-gray-300"
           >
             Browse Books
           </Link>
 
           <Link to="/explore" 
             onClick={closeMenu}
-            className="lg:px-4 py-2 block text-sm lg:text-base hover:text-gray-300"
+            className="lg:px-4 py-2 block text-sm focus:font-bold focus:text-blue-300 lg:text-base hover:text-gray-300"
           >
             Explore
           </Link>
-
           <Link to="/community" 
             onClick={closeMenu}
-            className="lg:px-4 py-2 block text-sm lg:text-base hover:text-gray-300"
+            className="lg:px-4 py-2 block text-sm focus:font-bold focus:text-blue-300 lg:text-base hover:text-gray-300"
           >
             Community
           </Link>
 
           <Link to="/feeds" 
             onClick={closeMenu}
-            className="lg:px-4 py-2 block text-sm lg:text-base hover:text-gray-300"
+            className="lg:px-4 py-2 block text-sm focus:font-bold focus:text-blue-300 lg:text-base hover:text-gray-300"
           >
             Feeds
           </Link>
 
-          <Link to="/careers" 
-            onClick={closeMenu} 
-            className="lg:px-4 py-2 block text-sm lg:text-base hover:text-gray-300"
-          >
-            Careers
+          <Link to="/careers" onClick={closeMenu} className="lg:px-2 py-1 rounded-xl text-blue-200 focus:font-bold  focus:text-blue-300 font-semibold block text-sm lg:text-base hover:text-gray-300">
+          We're Hiring! 
           </Link>
 
           <div className="lg:hidden flex flex-col gap-2">

@@ -36,7 +36,7 @@ const CareersPage = () => {
       <p className="text-base md:text-lg mb-8 text-center">
         To Apply for the Below Positions, send your resume to <a href="mailto:bookmates.in@gmail.com" className='text-blue-400'>bookmates.in@gmail.com</a>
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 justify-center  md:grid-cols-2 lg:grid-cols-3 gap-4">
         {jobListings.map((job, index) => (
           <div key={index} className="transform cursor-pointer transition duration-300">
             <div className="p-4 md:p-6 border-2 border-blue-600/30 rounded-lg shadow-md">
