@@ -18,6 +18,7 @@ import GenrePage from './pages/GenrePage';
 import ChatPage from './pages/ChatPage.jsx';
 import JoinPage from './pages/JoinPage';
 import VerifyPage from './pages/VerifyPage';
+import CareersPage from './pages/CareersPage';
 
 
 const App = () => {
@@ -49,6 +50,7 @@ const App = () => {
         <Route path="/book/:id" element={<BookDetails />} />
         <Route path="/upload" element={<ProtectedRoute element={<BookUpload />} />} />
         <Route path="/verify/:token" element={<VerifyPage />}/>
+        <Route path="/careers" element={<CareersPage />}/>
         
         <Route path="/feeds" element={<Feeds />} />
         <Route path='/profile' element={<ProfilePage />} />

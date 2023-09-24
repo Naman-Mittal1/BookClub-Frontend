@@ -130,11 +130,11 @@ const Header = () => {
             Feeds
           </Link>
 
-          <Link to="/upload" 
+          <Link to="/careers" 
             onClick={closeMenu} 
             className="lg:px-4 py-2 block text-sm lg:text-base hover:text-gray-300"
           >
-            Upload a Book
+            Careers
           </Link>
 
           <div className="lg:hidden flex flex-col gap-2">

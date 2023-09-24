@@ -1,6 +1,21 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 const VerifyModal = ({ isOpen, onRequestClose }) => {
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onRequestClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onRequestClose]);
+
   return (
     <>
       {isOpen && (
