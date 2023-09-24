@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { Link } from "react-router-dom";
 
 
-const RegisterModal = ({ isOpen, onRequestClose, onLoginClick }) => {
+const RegisterModal = ({ isOpen, onRequestClose, onLoginClick, onVerifyClick }) => {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -16,6 +16,12 @@ const RegisterModal = ({ isOpen, onRequestClose, onLoginClick }) => {
   const handleLoginClick = () => {
     onRequestClose()
     onLoginClick()
+    // isOpen();
+  }
+
+  const handleContinueClick = () => {
+    onRequestClose()
+    onVerifyClick()
     // isOpen();
   }
 
@@ -30,7 +36,7 @@ const RegisterModal = ({ isOpen, onRequestClose, onLoginClick }) => {
       });
       onRequestClose()
       navigate("/")
-      toast.success("Registration Completed! Now login.", {
+      toast.success("Registration Completed!", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -40,8 +46,9 @@ const RegisterModal = ({ isOpen, onRequestClose, onLoginClick }) => {
         progress: undefined,
         theme: "dark",
       });
+      handleContinueClick();
     } catch (error) {
-      toast.error("Uername or Email Already Exist", {
+      toast.error(error.response.data.message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -122,6 +129,7 @@ const RegisterModal = ({ isOpen, onRequestClose, onLoginClick }) => {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full p-3 bg-gray-800 text-white rounded mb-3"
           />
+
           <label htmlFor="password" className="text-white block mb-1">
             
           </label>

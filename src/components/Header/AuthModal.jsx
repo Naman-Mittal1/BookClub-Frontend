@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import LoginModal from "../shared/modals/LoginModal";
 import RegisterModal from "../shared/modals/RegisterModal";
+import VerifyModal from '../shared/modals/VerifyModal';
 
 const AuthModal = () => {
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
     const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
+    const [isVerifyModalOpen, setVerifyModalOpen] = useState(false);
      const openLoginModal = () => {
         setLoginModalOpen(true);
       };
@@ -21,7 +23,14 @@ const AuthModal = () => {
         setRegisterModalOpen(false);
       };
 
-
+      const openVerifyModal = () => {
+        setVerifyModalOpen(true);
+      };
+    
+      const closeVerifyModal = () => {
+        setVerifyModalOpen(false);
+      };
+    
 
   return (
     <div className="space-x-4">
@@ -46,7 +55,13 @@ const AuthModal = () => {
             isOpen={isRegisterModalOpen}
             onRequestClose={closeRegisterModal}
             onLoginClick = {openLoginModal}
+            onVerifyClick = {openVerifyModal}
           />
+
+          <VerifyModal
+          isOpen={isVerifyModalOpen}
+          onRequestClose={closeVerifyModal}
+           />
         </div>
   )
 }

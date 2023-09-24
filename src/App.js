@@ -17,6 +17,7 @@ import ExplorePage from './pages/ExplorePage';
 import GenrePage from './pages/GenrePage';
 import ChatPage from './pages/ChatPage.jsx';
 import JoinPage from './pages/JoinPage';
+import VerifyPage from './pages/VerifyPage';
 
 
 const App = () => {
@@ -47,6 +48,8 @@ const App = () => {
         <Route path="/browse-books" element={<BrowseBooks />} />
         <Route path="/book/:id" element={<BookDetails />} />
         <Route path="/upload" element={<ProtectedRoute element={<BookUpload />} />} />
+        <Route path="/verify/:token" element={<VerifyPage />}/>
+        
         <Route path="/feeds" element={<Feeds />} />
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/explore' element={<ExplorePage />} />

@@ -30,6 +30,7 @@ const LoginModal = ({ isOpen, onRequestClose, onRegisterClick }) => {
           username,
           password,
         }
+        
       );
       setCookies("access_token", response.data.token);
       window.localStorage.setItem("userID", response.data.userID);
@@ -46,7 +47,7 @@ const LoginModal = ({ isOpen, onRequestClose, onRegisterClick }) => {
         theme: "dark",
       });
     } catch (error) {
-      toast.error("Username or Password is Incorrect", {
+      toast.error(error.response.data.message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
