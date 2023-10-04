@@ -2,7 +2,7 @@ import React from 'react';
 
 const BookCard = ({ book }) => {
   return (
-    <div className="bg-gray-900 bg-opacity-70  p-4 rounded-md shadow-md flex flex-col sm:flex-row items-center">
+    <div className="bg-gray-900 bg-opacity-70 gap-1  p-4 rounded-md shadow-md flex flex-col sm:flex-row items-center">
       <img 
         src={book.image} 
         alt={book.title}
@@ -14,7 +14,7 @@ const BookCard = ({ book }) => {
         <p className="text-gray-100 mt-1">by {book.author}</p>
         <p className="text-gray-100">Genre: {book.genre}</p>
         <p className="text-gray-100">Year: {book.year}</p>
-        <p className="text-gray-100">{book.description}</p>
+        <p className="text-gray-100 text-justify pr-10 pt-2">{book.description}</p>
 
         <div className="flex-grow"></div> {/* Fill remaining space */}
         

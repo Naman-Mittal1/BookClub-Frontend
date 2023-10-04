@@ -35,7 +35,7 @@ const AuthModal = () => {
   return (
     <div className="space-x-4">
           <button
-            className="hover:bg-blue-800 text-white px-4 py-2 rounded-lg bg-blue-900"
+            className="hover:bg-blue-800 text-white text-md px-3.5 py-1.5 outline-none rounded-lg  bg-blue-900"
             onClick={openLoginModal}
           >
             Login
@@ -46,7 +46,7 @@ const AuthModal = () => {
             onRegisterClick = {openRegisterModal}
           />
           <button
-            className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded-lg"
+            className="bg-gray-700 hover:bg-gray-800 text-white text-md outline-none px-3.5 py-1.5  rounded-lg"
             onClick={openRegisterModal}
           >
             Signup
