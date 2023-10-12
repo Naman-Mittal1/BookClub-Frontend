@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import { loginUser } from "../../../api/auth";
 import { toast } from "react-toastify";
 
@@ -10,13 +11,23 @@ const LoginModal = ({ isOpen, onRequestClose, onRegisterClick }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
   const [, setCookies] = useCookies("access_token");
 
   const handleRegisterClick = () => {
-    onRequestClose()
-    onRegisterClick()
+    onRequestClose();
+    onRegisterClick();
     // isOpen();
-  }
+  };
+
+  const googleAuth = () => {
+    window.open(`localhost:5000/api/auth/google`, "_self");
+  };
 
   const navigate = useNavigate();
 
@@ -30,7 +41,6 @@ const LoginModal = ({ isOpen, onRequestClose, onRegisterClick }) => {
           username,
           password,
         }
-        
       );
       setCookies("access_token", response.data.token);
       window.localStorage.setItem("userID", response.data.userID);
@@ -105,17 +115,28 @@ const LoginModal = ({ isOpen, onRequestClose, onRegisterClick }) => {
               placeholder="Enter your username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full p-3 bg-gray-800 text-white rounded mb-3"
+              className="w-full p-3 outline-none bg-gray-800 text-white rounded mb-3"
             />
             <label htmlFor="password" className="text-white block mb-1"></label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-3 bg-gray-800 text-white rounded mb-4"
-            />
+            <div className="flex">
+  <div className="relative w-full">
+    <input
+      type={passwordVisible ? "text" : "password"}
+      id="password"
+      placeholder="Enter your password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className="w-full p-3 bg-gray-800 text-white rounded mb-4 pr-12 outline-none" // Add 'pr-10' for right padding
+    />
+    <span
+      onClick={togglePasswordVisibility}
+      className="absolute top-4 right-4 text-white text-lg cursor-pointer"
+    >
+      {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+    </span>
+  </div>
+</div>
+
             <button
               type="submit"
               className="bg-blue-800 text-white px-4 mt-3 py-2 rounded hover:bg-blue-900 w-full mb-2"
@@ -156,10 +177,17 @@ const LoginModal = ({ isOpen, onRequestClose, onRegisterClick }) => {
                 d="M43.611,20.083L43.595,20L42,20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
               ></path>
             </svg>
-            Continue with Google
+            <Link onClick={googleAuth}>Continue with Google</Link>
           </button>
           <p className="text-white text-sm text-center mt-2">
-            New to BookMates? <Link to={"/"}  className="text-blue-600 font-bold" onClick={handleRegisterClick}>Register now</Link>
+            New to BookMates?{" "}
+            <Link
+              to={"/"}
+              className="text-blue-600 font-bold"
+              onClick={handleRegisterClick}
+            >
+              Register now
+            </Link>
           </p>
         </div>
       </div>

@@ -3,20 +3,32 @@ import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import BookCard from '../components/BookCard/BookCard';
 import Footer from '../components/Footer/Footer';
-
+import Loader from '../components/shared/Loader/Loader';
 
 const GenrePage = () => {
   const { genre } = useParams();
   const [genreBooks, setGenreBooks] = useState(null)
+  const [isLoading, setIsLoading] = useState(false);
+
 
   useEffect(()=>{
     const fetchBooksFromGenre = async () => {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/books/genre/${genre}`);
-        const data = response.data.data;
-        setGenreBooks(data);
+        setIsLoading(true);
+        try{
+          const response = await axios.get(`${process.env.REACT_APP_API_URL}/books/genre/${genre}`);
+          const data = response.data.data;
+          setGenreBooks(data);
+        } catch (error) {
+          console.error("Error fetching books:", error);
+        } finally {
+          setIsLoading(false);
+        }
       }
       fetchBooksFromGenre();
   }, [genre])
+
+  if (isLoading) return <Loader />
+
 
   return (
     <>

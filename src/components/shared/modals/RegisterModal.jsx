@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const RegisterModal = ({ isOpen, onRequestClose, onLoginClick, onVerifyClick }) => {
@@ -10,6 +11,12 @@ const RegisterModal = ({ isOpen, onRequestClose, onLoginClick, onVerifyClick }) 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
   const navigate = useNavigate()
 
@@ -103,7 +110,7 @@ const RegisterModal = ({ isOpen, onRequestClose, onLoginClick, onVerifyClick }) 
               placeholder="Enter your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-3 bg-gray-800 text-white rounded mb-3"
+              className="w-full p-3 outline-none bg-gray-800 text-white rounded mb-3"
             />
 
           <label htmlFor="username" className="text-white block mb-1">
@@ -115,7 +122,7 @@ const RegisterModal = ({ isOpen, onRequestClose, onLoginClick, onVerifyClick }) 
             placeholder="Enter your username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full p-3 bg-gray-800 text-white rounded mb-3"
+            className="w-full p-3 outline-none bg-gray-800 text-white rounded mb-3"
           />
 
           <label htmlFor="email" className="text-white block mb-1">
@@ -127,20 +134,30 @@ const RegisterModal = ({ isOpen, onRequestClose, onLoginClick, onVerifyClick }) 
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-3 bg-gray-800 text-white rounded mb-3"
+            className="w-full p-3 outline-none bg-gray-800 text-white rounded mb-3"
           />
 
           <label htmlFor="password" className="text-white block mb-1">
             
           </label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-3 bg-gray-800 text-white rounded mb-4"
-          />
+          <div className="flex">
+  <div className="relative w-full">
+    <input
+      type={passwordVisible ? "text" : "password"}
+      id="password"
+      placeholder="Enter your password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className="w-full p-3 outline-none bg-gray-800 text-white rounded mb-4 pr-12 outline-none" // Add 'pr-10' for right padding
+    />
+    <span
+      onClick={togglePasswordVisibility}
+      className="absolute top-4 right-4 text-white text-lg cursor-pointer"
+    >
+      {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+    </span>
+  </div>
+</div>
           <button
             type="submit"
             className="bg-blue-800 text-white px-4 mt-3 py-2 rounded hover:bg-blue-900 w-full mb-2"

@@ -10,16 +10,19 @@ const BookCard = ({ book }) => {
       />
 
       <div className="ml-0 sm:ml-4 mt-4 sm:mt-0 flex flex-col flex-grow">
-        <h3 className="text-2xl text-white font-semibold">{book.title}</h3>
-        <p className="text-gray-100 mt-1">by {book.author}</p>
-        <p className="text-gray-100">Genre: {book.genre}</p>
+        <h3 className="text-2xl text-gray-300  font-semibold">{book.title}</h3>
+        <p className="text-gray-100 italic my-1">by <span className='text-gray-200'>{book.author}</span></p>
+        <p className="text-gray-100 my-1">Genre: <span className='italic text-blue-600'>{book.genre}</span></p>
         <p className="text-gray-100">Year: {book.year}</p>
-        <p className="text-gray-100 text-justify pr-10 pt-2">{book.description}</p>
-
+        <p className="text-gray-100 text-justify pr-20 pt-2">
+          {book.description.length > 200
+          ? `${book.description.slice(0, 200)} ...`
+          : book.description}
+        </p>
         <div className="flex-grow"></div> {/* Fill remaining space */}
         
         <div className="mt-3 flex justify-end">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          <button className="bg-blue-600 text-white text-sm mr-2 px-3 py-2 rounded hover:bg-blue-600">
             View Details
           </button>
         </div>

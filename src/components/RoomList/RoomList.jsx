@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+
 const RoomList = () => {
   const [loading, setLoading] = useState(true);
   const [rooms, setRooms] = useState([]);
@@ -21,6 +22,7 @@ const RoomList = () => {
 
   }, []);
 
+
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-semibold mt-5 text-center opacity-80 mb-10 text-white">Room List</h2>
@@ -29,7 +31,7 @@ const RoomList = () => {
           <p>Loading rooms...</p>
         ) : (
           rooms.map((room, index) => (
-            <Link key={room.id} to={`/room/${room._id}`}> {/* Wrap the entire card with Link */}
+            <Link key={room.id} to={`/room/${room._id}`}> 
               <div className="text-white">
                 <div
                   className="bg-gray-950 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-transform transform hover:scale-105"

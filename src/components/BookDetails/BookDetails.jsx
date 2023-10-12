@@ -7,10 +7,16 @@ import AddComment from '../AddComment/AddComment';
 import Loader from '../shared/Loader/Loader';
 import AudioBook from '../AudioBook/AudioBook';
 import FooterUn from '../Footer/FooterUn';
+import QuickSummary from '../shared/modals/QuickSummary';
+import DetailedSummary from '../shared/modals/DetailedSummary';
+
 
 const BookDetails = () => {
   const { id } = useParams();
   const [book, setBook] = useState(null);
+
+  const [showQuickSummaryModal, setShowQuickSummaryModal] = useState(false);
+  const [showDetailedSummaryModal, setShowDetailedSummaryModal] = useState(false);
 
   useEffect(() => {
     const fetchBookData = async () => {
@@ -48,23 +54,26 @@ const BookDetails = () => {
           <p className="text-gray-300 text-base mt-3 mb-1">Year: {book.year}</p>
           <p className="text-gray-300 text-sm sm:text-base mb-4 mt-3 max-w-2xl text-justify">Description: {book.description}</p>
           <div className='flex text-base sm:flex-row justify-center sm:justify-normal items-center gap-3 sm:gap-5'>
-  <Link
-    to=""
-    className="text-white text-sm sm:text-base bg-blue-900 hover:bg-blue-800 rounded-md py-2 px-4 text-center block transition duration-300 ease-in-out transform hover:scale-105"
-  >
-    Quick Summary
-  </Link>
-  <Link
-    to=""
-    className="text-white text-sm sm:text-base bg-blue-900 hover:bg-blue-800 rounded-md py-2 px-4 text-center block transition duration-300 ease-in-out transform hover:scale-105"
-  >
-    Detailed Summary
-  </Link>
+          <button
+          onClick={() => setShowQuickSummaryModal(true)}
+          className="text-white text-sm sm:text-base bg-blue-900 hover:bg-blue-800 rounded-md py-2 px-4 text-center block transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Quick Summary
+        </button>
+        <button
+          onClick={() => setShowDetailedSummaryModal(true)}
+          className="text-white text-sm sm:text-base bg-blue-900 hover:bg-blue-800 rounded-md py-2 px-4 text-center block transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Detailed Summary
+        </button>
 </div>
 {/* target="_blank" rel="noopener noreferrer" */}
 
         </div>
       </div>
+
+      <QuickSummary isOpen={showQuickSummaryModal} onRequestClose={() => setShowQuickSummaryModal(false)} />
+      <DetailedSummary isOpen={showDetailedSummaryModal} onRequestClose={() => setShowDetailedSummaryModal(false)} />
 
       <AudioBook  bookId={id} />
 
